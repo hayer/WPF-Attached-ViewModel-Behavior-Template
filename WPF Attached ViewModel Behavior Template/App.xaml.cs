@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WPF_Attached_ViewModel_Behavior_Template
+namespace WPPAttachedViewModelBehaviorTemplate
 {
     public partial class App : Application
     {

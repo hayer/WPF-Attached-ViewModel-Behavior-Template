@@ -1,14 +1,13 @@
 ﻿using System.Windows;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
-using Prism.Unity;
-using WPF_Attached_ViewModel_Behavior_Template.ViewModelBehaviors;
-using WPF_Attached_ViewModel_Behavior_Template.ViewModels;
-using WPF_Attached_ViewModel_Behavior_Template.Views;
+using WPPAttachedViewModelBehaviorTemplate.ViewModelBehaviors;
+using WPPAttachedViewModelBehaviorTemplate.ViewModels;
+using WPPAttachedViewModelBehaviorTemplate.Views;
 
-namespace WPF_Attached_ViewModel_Behavior_Template
+namespace WPPAttachedViewModelBehaviorTemplate
 {
-    public class Bootstrapper : UnityBootstrapper
+    public class Bootstrapper : PrismUnityBootstrapper
     {
         protected override DependencyObject CreateShell()
         {
@@ -28,10 +27,21 @@ namespace WPF_Attached_ViewModel_Behavior_Template
 
         protected override void ConfigureContainer()
         {
-            base.ConfigureContainer();
+            base.ConfigureContainer(); // must be called to initialize PRISM
 
-            // behaviors
-            Container.RegisterType<ITestViewModelBehavior, ShowTextBehavior>(nameof(ShowTextBehavior));
+            /* ### container configurator:
+             * on request of page (PRISM)
+             * -> create viewmodel container / child container
+             * -> run the container configurator
+             * -> resolve viewmodel, viewmodel behaviors and all other registered dependencies
+             * -> viewmodel returned to PRISM
+             */
+            RegisterViewModelContainerConfigurator<TestViewModel>(c =>
+            {
+                c.RegisterViewModelBehavior<ShowTextBehavior>(); // generics guarantee only behaviors for MainPageViewModel can be registered
+
+                // c.ViewModelContainer: reference to the viewmodel container - do custom registrations here
+            });
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Prism.Modularity;
 using Prism.Regions;
-using WPF_Attached_ViewModel_Behavior_Template.Views;
+using WPPAttachedViewModelBehaviorTemplate.Views;
 
-namespace WPF_Attached_ViewModel_Behavior_Template
+namespace WPPAttachedViewModelBehaviorTemplate
 {
     public class TestModule : IModule
     {

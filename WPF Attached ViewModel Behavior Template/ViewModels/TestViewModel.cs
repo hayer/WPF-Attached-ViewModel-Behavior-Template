@@ -1,23 +1,19 @@
-﻿using System.Linq;
+﻿using System;
 using System.Reactive.Linq;
+using JetBrains.Annotations;
 using Reactive.Bindings;
-using WPF_Attached_ViewModel_Behavior_Template.ViewModelBehaviors;
 
-namespace WPF_Attached_ViewModel_Behavior_Template.ViewModels
+namespace WPPAttachedViewModelBehaviorTemplate.ViewModels
 {
-    public interface ITestViewModelBehavior : IViewModelBehavior<TestViewModel> { }
-
-    public class TestViewModel
+    [UsedImplicitly]
+    public class TestViewModel : ViewModel<TestViewModel>
     {
-        private readonly ITestViewModelBehavior[] _behaviors;
-
-        public TestViewModel(ITestViewModelBehavior[] behaviors)
+        public TestViewModel(Func<TestViewModel, ViewModelBehaviorsController<TestViewModel>> a) : base(a)
         {
             ShowTextCommand = Text.Select(str => !string.IsNullOrWhiteSpace(str)).ToReactiveCommand();
 
-            // initialize behaviors
-            _behaviors = behaviors;
-            _behaviors.ForEach(b => b.Start(this));
+            // determistic start of behaviors
+            BehaviorsController.Start();
         }
 
         public ReactiveProperty<string> Text { get; } = new ReactiveProperty<string>();

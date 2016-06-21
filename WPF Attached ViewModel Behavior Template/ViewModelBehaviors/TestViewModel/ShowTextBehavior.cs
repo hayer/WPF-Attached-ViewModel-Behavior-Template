@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Windows;
-using WPF_Attached_ViewModel_Behavior_Template.ViewModels;
+using JetBrains.Annotations;
+using WPPAttachedViewModelBehaviorTemplate.ViewModels;
 
-namespace WPF_Attached_ViewModel_Behavior_Template.ViewModelBehaviors
+namespace WPPAttachedViewModelBehaviorTemplate.ViewModelBehaviors
 {
-    public class ShowTextBehavior : ITestViewModelBehavior
+    [UsedImplicitly]
+    public class ShowTextBehavior : ViewModelBehavior<TestViewModel>
     {
-        private ViewModels.TestViewModel _vm;
-
-        public void Start(ViewModels.TestViewModel viewModel)
+        protected override void OnStart()
         {
-            _vm = viewModel;
-            viewModel.ShowTextCommand.Subscribe(_ => MessageBox.Show(_vm.Text.Value));
+            // subscribe to command - add subscription to dispose list
+            RegisterDisposable(ViewModel.ShowTextCommand.Subscribe(_ => ShowMessageDialog()));
+        }
+
+        private void ShowMessageDialog()
+        {
+            // ViewModel: property available on a behavior
+            MessageBox.Show(ViewModel.Text.Value, "The message is");
         }
     }
 }
