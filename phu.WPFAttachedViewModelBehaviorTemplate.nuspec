@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>phu.WPFAttachedViewModelBehaviorTemplate</id>
+    <version>1.0.0</version>
+    <authors>Peder Husom</authors>
+    <owners>hayer</owners>
+    <projectUrl>https://github.com/hayer/WPF-Attached-ViewModel-Behavior-Template</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>dotnet new templates for easily creating attached viewmodel behavior items.</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>template dotnet wpf avmb tool</tags>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="content\**\*.*" target="content" />
+  </files>
+</package>

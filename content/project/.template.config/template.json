@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "identity": "wpf-avmb-project",
+    "author": "Peder Husom",
+    "classifications": [ "Common", "WPF"],
+    "name": "WPF Attached ViewModel Behavior, project",
+    "groupIdentity": "WPF-AttachedViewModelBehavior-p",
+    "shortName": "avmb-project",
+    "tags": {
+        "language": "c#",
+        "type": "project"
+    },
+    "sourceName": "WPFAttachedViewModelBehaviorTemplate"
+}

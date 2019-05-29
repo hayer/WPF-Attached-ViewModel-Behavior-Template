@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "identity": "wpf-avmb-view",
+    "author": "Peder Husom",
+    "classifications": [ "Common", "WPF"],
+    "name": "WPF Attached ViewModel Behavior, view",
+    "groupIdentity": "WPF-AttachedViewModelBehavior-vm",
+    "shortName": "avmb-view",
+    "tags": {
+        "language": "c#",
+        "type": "item"
+    },
+    "sourceName": "TemplateView",
+    "symbols": {
+        "namespace": {
+          "description": "base namespace to use for the generated view",
+          "replaces": "WpfAvmb",
+          "type": "parameter",
+          "isRequired": true
+        },
+        "only-viewmodel": {
+            "description": "only create the viewmodel",
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "false"
+        },
+        "only-view": {
+            "description": "only create the view",
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "false"
+        }
+    },
+    "sources": [{
+        "modifiers": [{
+            "condition": "(only-viewmodel)",
+            "exclude": [
+                "Views/*"
+            ]
+        }, {
+            "condition": "(only-view)",
+            "exclude": [
+                "ViewModels/*"
+            ]
+        }]
+    }]
+}

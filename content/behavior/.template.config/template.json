@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "identity": "wpf-avmb-behavior",
+    "author": "Peder Husom",
+    "classifications": [ "Common", "WPF"],
+    "name": "WPF Attached ViewModel Behavior, behavior",
+    "groupIdentity": "WPF-AttachedViewModelBehavior-b",
+    "shortName": "avmb-behavior",
+    "tags": {
+        "language": "c#",
+        "type": "item"
+    },
+    "sourceName": "TemplateBehavior",
+    "symbols": {
+        "namespace": {
+          "description": "base namespace to use for the generated behavior",
+          "replaces": "WpfAvmb",
+          "type": "parameter",
+          "isRequired": true
+        },
+        "viewmodel": {
+            "description": "viewmodel the behavior belongs to",
+            "type": "parameter",
+            "datatype": "text",
+            "replaces": "TemplateViewModel",
+            "fileRename": "TemplateViewModel",
+            "isRequired": true
+        }
+    }
+}
