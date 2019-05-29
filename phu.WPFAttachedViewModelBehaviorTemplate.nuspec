@@ -2,13 +2,17 @@
 <package >
   <metadata>
     <id>phu.WPFAttachedViewModelBehaviorTemplate</id>
+	<title>WPF Attached ViewModel Behavior Template</title>
+	<license type="expression">MIT</license>
     <version>1.0.0</version>
     <authors>Peder Husom</authors>
     <owners>hayer</owners>
     <projectUrl>https://github.com/hayer/WPF-Attached-ViewModel-Behavior-Template</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>dotnet new templates for easily creating attached viewmodel behavior items.</description>
-    <releaseNotes>Initial release</releaseNotes>
+	<description>dotnet new template for attached viewmodel behavior.</description>
+    <summary>dotnet new templates for simplifing the process of creating attached viewmodel behavior items such as views, viewmodels and behaviors.</summary>
+    <releaseNotes>Initial release, feedback welcome.</releaseNotes>
+	<repository type="git" url="https://github.com/hayer/WPF-Attached-ViewModel-Behavior-Template.git" />
     <copyright>Copyright 2019</copyright>
     <tags>template dotnet wpf avmb tool</tags>
     <packageTypes>
